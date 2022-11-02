@@ -17,7 +17,10 @@ void draw() {
   case 0:
     image(menu, 0, 0, width, height);
     break;
-  default:
+  case 1:
+    background(100);
+    break;
+  case 2:
     background(10);
     break;
   }
@@ -25,8 +28,16 @@ void draw() {
 
 void mousePressed() {
   if (mouseButton==LEFT) {
-    pa = 1;
+    println(mouseX);
+    println(mouseY);
+  }
+  if (mouseButton==LEFT && mouseX>=295 && mouseX<=474 && mouseY>=380 && mouseY<=463) {
+    pa = 2;
   } else {
-    pa = 0;
+    if (mouseButton==LEFT && mouseX>=527 && mouseX<=697 && mouseY>=386 && mouseY<=465) {
+      pa = 1;
+    } else {
+      pa = 0;
+    }
   }
 }
