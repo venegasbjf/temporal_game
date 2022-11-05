@@ -19,13 +19,20 @@ void setup() {
   menu = loadImage("Menu.jpg");
   fondo1 = loadImage("fondo1.png");
   fondo2 = loadImage("fondo2.png");
-  character1 = loadImage("person1.png");
+  character1 = loadImage("person11.png");
 }
 
 void draw() {
   switch(pa) {
   case 0:
     image(menu, -200, 0, 1000, height);
+    if (mouseButton==LEFT && mouseX>=95 && mouseX<=274 && mouseY>=380 && mouseY<=463) {
+      pa = 2; //boton de inicio
+    } else {
+      if (mouseButton==LEFT && mouseX>=327 && mouseX<=497 && mouseY>=386 && mouseY<=465) {
+        pa = 1; //boton de opciones
+      }
+    }
     break;
   case 1: //aqui se programan las opciones
     background(100);
@@ -34,39 +41,39 @@ void draw() {
     if (back == 1) {
       image(fondo1, 0, 0, width, height);
     } else {
-      if (back==2) {
+      if (back==-1) {
         image(fondo2, 0, 0, width, height);
       }
     }
-    
-    image(character1, x, y, 55, 70);
+
+    image(character1, x, y, 40, 60);
     y = y + vel;
-    
-    if(keyPressed==true && key=='a'){
-    x = x - 5;
+
+    if (keyPressed==true && key=='a') {
+      x = x - 5;
     }
-    
-    if(keyPressed==true && key=='d'){
-    x = x + 5;
+
+    if (keyPressed==true && key=='d') {
+      x = x + 5;
     }
-    
-    if(y > height+55/2){
-    y = 0.0;
+
+    if (y > height+55/2) {
+      y = 0.0;
+      back = back*-1;
     }
-    
-    if(x < 0){
-    x = 1;
+
+    if (x < 0) {
+      x = 1;
     }
-    
-    if (x+55 >300){
-    x = 299-55;
+
+    if (x+55 >300) {
+      x = 298-55;
     }
     break;
   }
 }
 
-void keyPressed(){
-
+void keyPressed() {
 }
 
 void mousePressed() {
@@ -74,7 +81,7 @@ void mousePressed() {
     println(mouseX);
     println(mouseY);
   }
-  if (mouseButton==LEFT && mouseX>=95 && mouseX<=274 && mouseY>=380 && mouseY<=463) {
+  /*if (mouseButton==LEFT && mouseX>=95 && mouseX<=274 && mouseY>=380 && mouseY<=463) {
     pa = 2; //boton de inicio
   } else {
     if (mouseButton==LEFT && mouseX>=327 && mouseX<=497 && mouseY>=386 && mouseY<=465) {
@@ -82,5 +89,5 @@ void mousePressed() {
     } else {
       pa = 0;
     }
-  }
+  }*/
 }
