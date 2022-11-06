@@ -10,9 +10,14 @@ float vel = 5.0;
 int cont = 0;
 
 PImage fondo1;
-PImage fondo2;
+PImage fondop11;
+PImage fondop12;
 PImage character1;
 PImage menu;
+
+long tiempo = 0;
+long t_actualizado = 0;
+long t_retardo = 3000;
 
 //los atributos normalmente son (x, y, weidth, height)
 
@@ -21,8 +26,9 @@ void setup() {
   size(600, 800);
   background(100, 0, 50); //cuando hay muchos atrivutos esto se convierte en una especie de pantalla de carga
   menu = loadImage("Menu.jpg");
+  fondop11 = loadImage("fondop11.png");
   fondo1 = loadImage("fondo1.png");
-  fondo2 = loadImage("fondo2.png");
+  fondop12 = loadImage("fondop12.png");
   character1 = loadImage("car1.png");
 }
 
@@ -76,17 +82,27 @@ void draw() {
     }
 
     if (back == 1) { //primer fondo
-      image(fondo1, 0, 0, width, height);
+      image(fondop11, 0, 0, width/2, height);
       //vel = vel+0.03;
-      if (90 > x && x > 28 && 128 > y && y > 102){
-       y = 0.0;
-       x = 110;
-       vel = 2.5;
-       }
+      if ((90 > x || 90 > x+40) && (x > 28 || x+40 > 28) && (128 > y || 128 > y+60) && (y > 102 || y+60 > 102)) {
+        y = 0.0;
+        //ax = 110;
+        vel = 2.5;
+      }
+      
+      tiempo = millis();
+      
+      if ( tiempo > t_actualizado + t_retardo && vel==2.5)
+      {
+        vel = 5;
+        //Se actualiza el tiempo que ha de transcurrir para el próximo delay.
+        t_actualizado = tiempo;
+      }
+      
     } else {
       if (back==-1) { //segundo fondo
-      //vel = vel+0.03;
-        image(fondo2, 0, 0, width, height);
+        //vel = vel+0.03;
+        image(fondop12, 0, 0, width/2-1, height);
       }
     }
 
@@ -99,8 +115,10 @@ void draw() {
 
   /*cont = cont + 1;
    print(cont);*/
-   
+
   //delay(500);
+  
+  println(vel);
 }
 
 /*void segundos(int contsec){
@@ -112,8 +130,13 @@ void keyPressed() {
 
 void mousePressed() {
   if (mouseButton==LEFT) {
+    loop();
+  }
+
+  if (mouseButton==RIGHT) {
     println(mouseX);
     println(mouseY);
+    noLoop();
   }
   /*if (mouseButton==LEFT && mouseX>=95 && mouseX<=274 && mouseY>=380 && mouseY<=463) {
    pa = 2; //boton de inicio
