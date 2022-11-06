@@ -84,15 +84,15 @@ void draw() {
     if (back == 1) { //primer fondo
       image(fondop11, 0, 0, width/2, height);
       //vel = vel+0.03;
-      if ((90 > x || 90 > x+40) && (x > 28 || x+40 > 28) && (128 > y || 128 > y+60) && (y > 102 || y+60 > 102)) {
-        y = 0.0;
+      if ((90 > x || 90 > x+40) && (x > 28 || x+40 > 28) && (128 > y || 128 > y+60) && (y > 102 || y+60 > 102)) { //HAY QUE REPLICAR ESTE IF PARA CADA VALLA*****************************************************************************************
+        y = 94-60;// esta linea es para que el muñeco se devuelva unos pasos hacia atras y que no se bugee el retroseso 
         //ax = 110;
-        vel = 2.5;
+        vel = vel*-0.15;
       }
       
       tiempo = millis();
       
-      if ( tiempo > t_actualizado + t_retardo && vel==2.5)
+      if ( tiempo > t_actualizado + t_retardo && vel<=3.5)
       {
         vel = 5;
         //Se actualiza el tiempo que ha de transcurrir para el próximo delay.
