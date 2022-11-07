@@ -121,6 +121,30 @@ void draw() {
       if (back==-1) { //segundo fondo
         //vel = vel+0.03;
         image(fondop12, 0, 0, width/2-1, height);
+         if ((157 > x || 157 > x+40) && (x > 93 || x+40 > 93) && (113 > y || 113 > y+60) && (y > 90 || y+60 > 90)) { //HAY QUE REPLICAR ESTE IF PARA CADA VALLA*****************************************************************************************
+        y = 94-60;// esta linea es para que el muñeco se devuelva unos pasos hacia atras y que no se bugee el retroseso 
+        //ax = 110;
+        vel = vel*-0.15;
+      }
+      
+       if ((156 > x || 156 > x+40) && (x > 93 || x+40 > 93) && (274 > y || 274 > y+60) && (y > 252 || y+60 > 252)) { //HAY QUE REPLICAR ESTE IF PARA CADA VALLA*****************************************************************************************
+        y = 94-60;// esta linea es para que el muñeco se devuelva unos pasos hacia atras y que no se bugee el retroseso 
+        //ax = 110;
+        vel = vel*-0.15;
+      }
+      
+       if ((92 > x || 92 > x+40) && (x > 28 || x+40 > 28) && (447 > y || 447 > y+60) && (y > 423 || y+60 > 423)) { //HAY QUE REPLICAR ESTE IF PARA CADA VALLA*****************************************************************************************
+        y = 94-60;// esta linea es para que el muñeco se devuelva unos pasos hacia atras y que no se bugee el retroseso 
+        //ax = 110;
+        vel = vel*-0.15;
+      }
+      
+      if ((221 > x || 221 > x+40) && (x > 157 || x+40 > 157) && (608 > y || 608 > y+60) && (y > 585 || y+60 > 585)) { //HAY QUE REPLICAR ESTE IF PARA CADA VALLA*****************************************************************************************
+        y = 94-60;// esta linea es para que el muñeco se devuelva unos pasos hacia atras y que no se bugee el retroseso 
+        //ax = 110;
+        vel = vel*-0.15;
+      }
+      
       }
     }
 
